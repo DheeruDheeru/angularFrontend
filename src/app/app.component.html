@@ -1,0 +1,33 @@
+<header id="header"><!--header-->
+  <div class="header-middle"><!--header-middle-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="logo pull-left">
+            <a [routerLink]="['/index']" routerLinkActive="router-link-active" >Online Food Ordering Application.</a>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="shop-menu pull-right">
+            <ul class="nav navbar-nav">								
+              <li><a [routerLink]="['/checkout']" routerLinkActive="router-link-active" ><i class="fa fa-crosshairs"></i> Checkout</a></li>
+              <li><a [routerLink]="['/cart']" routerLinkActive="router-link-active" ><i class="fa fa-shopping-cart"></i> Cart</a></li>
+              <li><a *ngIf="!_authService.loggedIn()" [routerLink]="['/login']" routerLinkActive="router-link-active" ><i class="fa fa-lock"></i> Sign-in</a></li>
+              <li><a *ngIf="_authService.loggedIn()" [routerLink]="['/index']" routerLinkActive="router-link-active" (click)="_authService.logoutUser()" ><i class="fa fa-unlock"></i> sign-out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-middle-->
+</header><!--/header-->	
+<router-outlet></router-outlet>
+<footer id="footer"><!--Footer-->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <p class="pull-left">Copyright © 2020</p>
+      </div>
+    </div>
+  </div>
+</footer><!--/Footer-->

@@ -1,0 +1,120 @@
+<section id="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <h2>Login to your account</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmitlogin()" autocomplete="false">
+                        <input type="email" formControlName="emailField" placeholder="email">
+                            <div class="form-error" *ngIf="loginForm.get('emailField').touched && !loginForm.get('emailField').valid">
+                                <div *ngIf="loginForm.get('emailField').errors.required">
+                                    Email is required
+                                </div>
+                                <div *ngIf="loginForm.get('emailField').errors.email && !loginForm.get('emailField').errors.required">
+                                    Invalid email address
+                                </div>
+                            </div>
+                        <input formControlName="password" autocomplete="new-password" type="password" placeholder="password">
+                            <div class="form-error" *ngIf="loginForm.get('password').touched && !loginForm.get('password').valid">
+                                <div *ngIf="loginForm.get('password').errors.minlength">
+                                    Password must be at least 4 characters long.
+                                </div>
+                                <div *ngIf="loginForm.get('password').errors.required">
+                                    Password is required
+                                </div>
+                            </div>    
+                        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-default">Sign-in</button>
+                    </form>
+                </div>
+            </div>
+        
+        <div class="col-sm-1">
+            <h2 class="or">OR</h2>
+        </div>
+        <div class="col-sm-4">
+            <div class="signup-form">
+                <h2>New User Sign-up!</h2>
+                <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+                    <input type="text" placeholder="Firstname"formControlName="firstName" type="text">
+                        <div class="form-error" *ngIf="signupForm.get('firstName').touched && !signupForm.get('firstName').valid">
+                            <div *ngIf="signupForm.get('firstName').errors.required">
+                                First Name is required
+                            </div>
+                        </div>
+                    <input type="text" placeholder="Lastname"formControlName="lastName" type="text">
+                        <div class="form-error" *ngIf="signupForm.get('lastName').touched && !signupForm.get('lastName').valid">
+                            <div *ngIf="signupForm.get('lastName').errors.required">
+                                last Name is required
+                            </div>
+                        </div>
+                    <input type="email"formControlName="email" placeholder="email">
+                        <div class="form-error" *ngIf="signupForm.get('email').touched && !signupForm.get('email').valid">
+                            <div *ngIf="signupForm.get('email').errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="signupForm.get('email').errors.email && !signupForm.get('email').errors.required">
+                                Invalid email address
+                            </div>
+                        </div>
+                    <input type="password" formControlName="password" autocomplete="new-password" placeholder="password">
+                        <div class="form-error" *ngIf="signupForm.get('password').touched && !signupForm.get('password').valid">
+                            <div *ngIf="signupForm.get('password').errors.minlength">
+                                Password must be at least 4 characters long.
+                            </div>
+                            <div *ngIf="signupForm.get('password').errors.required">
+                                Password is required
+                            </div>
+                        </div>    
+                    <input (change)="fileChange($event)" type="file" placeholder="Profile Image" accept="image/x-png,image/gif,image/jpeg">
+                    <input type="text" formControlName="role" placeholder="role">
+                        <div class="form-error" *ngIf="signupForm.get('role').touched && !signupForm.get('role').valid">
+                            <div *ngIf="signupForm.get('role').errors.required">
+                                role is required
+                            </div>
+                        </div>    
+                    <input placeholder="Phone" formControlName="phone" type="number">
+                        <div class="form-error" *ngIf="signupForm.get('phone').touched && !signupForm.get('phone').valid">
+                            <div *ngIf="signupForm.get('phone').errors.required">
+                                Phone is required
+                            </div>
+                            <div *ngIf="signupForm.get('phone').errors.pattern">
+                                Phone number must be 10 digit.
+                            </div>
+                        </div>
+                    <input placeholder="Address" formControlName="address" type="text">
+                        <div class="form-error" *ngIf="signupForm.get('address').touched && !signupForm.get('address').valid">
+                            <div *ngIf="signupForm.get('address').errors.required">
+                                Address is required
+                            </div>
+                        </div>  
+                    <input placeholder="City" formControlName="city" type="text">
+                        <div class="form-error" *ngIf="signupForm.get('city').touched && !signupForm.get('city').valid">
+                            <div *ngIf="signupForm.get('city').errors.required">
+                                city is required
+                            </div>
+                        </div>
+                    <input type="text" placeholder="State" formControlName="state">
+                        <div class="form-error" *ngIf="signupForm.get('state').touched && !signupForm.get('state').valid">
+                            <div *ngIf="signupForm.get('state').errors.required">
+                                State is required
+                            </div>
+                        </div>
+                    <input type="text" placeholder="Country" formControlName="country">
+                        <div class="form-error" *ngIf="signupForm.get('country').touched && !signupForm.get('country').valid">
+                            <div *ngIf="signupForm.get('country').errors.required">
+                                country is required
+                            </div>
+                        </div>    
+                    <input type="number" placeholder="Zip" formControlName="zip">
+                        <div class="form-error" *ngIf="signupForm.get('zip').touched && !signupForm.get('zip').valid">
+                            <div *ngIf="signupForm.get('zip').errors.required">
+                                zip is required
+                            </div>
+                        </div>
+                    <button [disabled]="signupForm.invalid" type="submit" class="btn btn-default">Sign-up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
